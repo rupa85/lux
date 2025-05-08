@@ -1,0 +1,236 @@
+--------------Login.html-------------------------------
+
+
+<h2>Login</h2>
+<input type="email" [(ngModel)]="email" placeholder="Email"><br>
+<input type="password" [(ngModel)]="password" placeholder="Password"><br>
+<button (click)="login()">Login</button>
+
+--------------Login.components.ts------------------------
+
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { RouterModule, Router } from '@angular/router';
+import { UserService } from '../user.service';
+
+@Component({
+  selector: 'app-login',
+  standalone: true,
+  imports: [CommonModule, FormsModule, RouterModule],
+  templateUrl: './login.component.html'
+})
+export class LoginComponent {
+  email = '';
+  password = '';
+
+  constructor(private userService: UserService, private router: Router) {}
+
+  login() {
+    if (this.userService.isValidLogin(this.email, this.password)) {
+      alert('Hi, you successfully logged in!');
+      this.router.navigate(['/show']);
+    } else {
+      alert('Invalid credentials. Please register first.');
+    }
+  }
+}
+
+
+
+
+----------------------------Register.html-----------------------------------
+
+<h2>Register</h2>
+<input type="text" [(ngModel)]="name" placeholder="Name"><br>
+<input type="text" [(ngModel)]="address" placeholder="Address"><br>
+<input type="text" [(ngModel)]="contact" placeholder="Contact"><br>
+<input type="email" [(ngModel)]="email" placeholder="Email"><br>
+<input type="password" [(ngModel)]="password" placeholder="Password"><br>
+<button (click)="register()">Register</button>
+
+----------------------------Register.components.ts----------------------------
+
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { RouterModule, Router } from '@angular/router';
+import { UserService } from '../user.service';
+
+@Component({
+  selector: 'app-register',
+  standalone: true,
+  imports: [CommonModule, FormsModule, RouterModule],
+  templateUrl: './register.component.html'
+})
+export class RegisterComponent {
+  name = '';
+  address = '';
+  contact = '';
+  email = '';
+  password = '';
+
+  constructor(private userService: UserService, private router: Router) {}
+
+  register() {
+    if (!this.name || !this.address || !this.contact || !this.email || !this.password) {
+      alert('Please fill all fields');
+      return;
+    }
+
+    this.userService.registerUser({
+      name: this.name,
+      address: this.address,
+      contact: this.contact,
+      email: this.email,
+      password: this.password
+    });
+
+    alert('Registered successfully!');
+    this.router.navigate(['/login']);
+  }
+}
+
+
+---------------------------------Show.html------------------------------------------------
+
+<h2>User Profile</h2>
+<p><strong>Name:</strong> {{ user?.name }}</p>
+<p><strong>Address:</strong> {{ user?.address }}</p>
+<p><strong>Contact:</strong> {{ user?.contact }}</p>
+<p><strong>Email:</strong> {{ user?.email }}</p>
+
+
+----------------------------------Show.components.ts----------------------------------------------
+
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterModule, Router } from '@angular/router';
+import { UserService } from '../user.service';
+
+@Component({
+  selector: 'app-show',
+  standalone: true,
+  imports: [CommonModule, RouterModule],
+  templateUrl: './show.component.html'
+})
+export class ShowComponent {
+  user: any;
+
+  constructor(private userService: UserService, private router: Router) {
+    this.user = this.userService.getUser();
+    if (!this.user) {
+      alert('No user data found. Please register.');
+      this.router.navigate(['/register']);
+    }
+  }
+}
+
+
+-------------------------------app.config.ts---------------------------
+
+import { provideRouter } from '@angular/router';
+import { routes } from './app.routes';
+import { provideHttpClient } from '@angular/common/http';
+import { provideAnimations } from '@angular/platform-browser/animations';
+import { importProvidersFrom } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+``
+
+export const appConfig = {
+  providers: [
+    provideRouter(routes),
+    provideHttpClient(),
+    provideAnimations(),
+    importProvidersFrom(FormsModule)
+  ]
+};
+
+
+
+------------------------------app.routes.ts-------------------------------------
+
+import { Routes } from '@angular/router';
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
+import { ShowComponent } from './show/show.component';
+
+export const routes: Routes = [
+  { path: '', redirectTo: 'register', pathMatch: 'full' },
+  { path: 'register', component: RegisterComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'show', component: ShowComponent }
+];
+
+
+----------------------------styles.css--------------------------------------------------
+
+/* You/* Apply to body for clean look */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Center the form container */
+  form, .form-container {
+    background-color: #fff;
+    max-width: 400px;
+    margin: 60px auto;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Headings */
+  h2 {
+    text-align: center;
+    color: #333;
+  }
+  
+  /* Inputs */
+  input {
+    width: 100%;
+    padding: 10px;
+    margin: 12px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+  }
+  
+  /* Button */
+  button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Nav links */
+  nav {
+    background: #333;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  nav a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  nav a:hover {
+    text-decoration: underline;
+  }
+   can add global styles to this file, and also import other style files */
