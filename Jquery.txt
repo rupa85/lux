@@ -1,0 +1,230 @@
+----------------------------index.html------------------------
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Aditi's Art Gallery</title>
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body>
+    <div data-role="page">
+        <div data-role="header" data-theme="b">
+            <h1>Aditi's Art Gallery</h1>
+            <div data-role="navbar" data-grid="c">
+                <ul>
+                    <li><a href="index.html" class="ui-btn-active">Home</a></li>
+                    <li><a href="about_us.html" class="ui-btn-active">About Us</a></li>
+                    <li><a href="products.html" class="ui-btn-active">Products</a></li>
+                    <li><a href="login.html" class="ui-btn-active">Login</a></li>
+                </ul>
+            </div> 
+        </div>  
+       <center> <h2>Products</h2></center>
+    
+        <!-- Page content can go here -->
+        <center>
+        <div role="main" class="ui-content">
+            <div class="row">
+                <div>
+                    <img src="1652624753142.jpg" alt="people" height="250px" width="250px">
+                    <img src="1652625130069.jpg" alt="people" height="250px" width="250px">
+                    <img src="1652625371989.jpg" alt="people" height="250px" width="250px">
+                </div><br>
+                <div>
+                    <img src="1652624753142.jpg" alt="people" height="250px" width="250px">
+                    <img src="1652625130069.jpg" alt="people" height="250px" width="250px">
+                    <img src="1652625371989.jpg" alt="people" height="250px" width="250px">
+                </div><br>
+                <div>
+                    <img src="1652624753142.jpg" alt="people" height="250px" width="250px">
+                    <img src="1652625130069.jpg" alt="people" height="250px" width="250px">
+                    <img src="1652625371989.jpg" alt="people" height="250px" width="250px">
+                </div><br>
+            </div>   
+            
+
+        </div>
+
+        <div data-role="footer" data-theme="b">
+            <div data-role="quicklinks">
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a><br><br>
+                <a href="about_us.html">About Us</a><br><br>
+                <a href="products.html">Products</a><br><br>
+                <a href="login.html">Login</a><br><br>
+                <p>Copyright 2023 | Aditi's Art gallery, all rights reserved</p>
+
+            </div>
+
+        </div>
+    </center>
+
+    </div>   
+</body>
+</html>
+
+
+-----------------------------------login.html-------------------------------------------------
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page | Aditi's Art Gallery</title>
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body>
+    <div data-role="page">
+        <div data-role="header" data-theme="b">
+            <h1>Aditi's Art Gallery</h1>
+            <div data-role="navbar" data-grid="c">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about_us.html">About Us</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="login.html" class="ui-btn-active">Login</a></li>
+                </ul>
+            </div> 
+        </div>
+
+        <div role="main" class="ui-content">
+            <div data-role="collapsible" data-collapsed="false">
+                <h2>Login</h2>
+                <form action="login_process.php" method="POST">
+                    <label for="login-username">Username:</label>
+                    <input type="text" name="username" id="login-username" required>
+
+                    <label for="login-password">Password:</label>
+                    <input type="password" name="password" id="login-password" required>
+
+                    <input type="submit" value="Login" data-theme="b">
+                </form>
+            </div>
+
+            <div data-role="collapsible">
+                <h2>Register</h2>
+                <form action="register_process.php" method="POST">
+                    <label for="reg-name">Full Name:</label>
+                    <input type="text" name="fullname" id="reg-name" required>
+
+                    <label for="reg-email">Email:</label>
+                    <input type="email" name="email" id="reg-email" required>
+
+                    <label for="reg-username">Username:</label>
+                    <input type="text" name="username" id="reg-username" required>
+
+                    <label for="reg-password">Password:</label>
+                    <input type="password" name="password" id="reg-password" required>
+
+                    <label for="reg-confirm">Confirm Password:</label>
+                    <input type="password" name="confirm_password" id="reg-confirm" required>
+
+                    <input type="submit" value="Register" data-theme="b">
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+---------------------------------products.html-------------------------------------------------------
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products | Aditi's Art Gallery</title>
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body>
+    <div data-role="page">
+        <div data-role="header" data-theme="b">
+            <h1>Aditi's Art Gallery</h1>
+            <div data-role="navbar" data-grid="c">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about_us.html">About Us</a></li>
+                    <li><a href="products.html" class="ui-btn-active">Products</a></li>
+                    <li><a href="login.html">Login</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div role="main" class="ui-content">
+            <h2>Our Products</h2>
+            <ul data-role="listview" data-inset="true">
+                <li>
+                    <img src="art1.jpg" alt="Abstract Painting">
+                    <h2>Old lady Imagery</h2>
+                    <p>Bold colours and unique expression</p>
+                    <p class="ui-li-aside">₹1,200</p>
+                </li>
+                <li>
+                    <img src="art2.jpg" alt="Nature Landscape">
+                    <h2>Mother-Daughter</h2>
+                    <p>Serene and calming scenery</p>
+                    <p class="ui-li-aside">₹1,500</p>
+                </li>
+                <li>
+                    <img src="art3.jpg" alt="Portrait Sketch">
+                    <h2>Portrait Sketch</h2>
+                    <p>Fine pencil work on textured paper</p>
+                    <p class="ui-li-aside">₹900</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
+
+
+---------------------------------------about_us.html------------------------------------
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Aditi's Art Gallery</title>
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body>
+    <div data-role="page">
+        <div data-role="header" data-theme="b">
+            <h1>Aditi's Art Gallery</h1>
+            <div data-role="navbar" data-grid="c">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about_us.html" class="ui-btn-active">About Us</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="login.html">Login</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div role="main" class="ui-content">
+            <h2>About Us</h2>
+            <p>Welcome to <strong>Aditi's Art Gallery</strong> – a place where creativity meets passion.</p>
+            <p>We are a team of art lovers dedicated to showcasing beautiful and unique artwork from various artists. Our goal is to bring art closer to your heart and home.</p>
+            <p>Whether you're an art enthusiast, a collector, or someone looking to decorate your space with elegance, Aditi's Art Gallery has something special for you.</p>
+            <p>Thank you for visiting us!</p>
+        </div>
+    </div>
+</body>
+</html>
+
+
+

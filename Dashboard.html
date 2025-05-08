@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>I2IT College Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f8f9fa;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .sidebar {
+      background-color: #003366;
+      height: 100vh;
+      color: #fff;
+      padding-top: 1rem;
+    }
+    .sidebar a {
+      color: #cfd8dc;
+      text-decoration: none;
+      padding: 10px 20px;
+      display: block;
+    }
+    .sidebar a:hover, .sidebar a.active {
+      background-color: #004080;
+      color: #fff;
+      border-left: 4px solid #00bcd4;
+    }
+    .logo {
+      width: 50px;
+    }
+    .card-icon {
+      font-size: 1.6rem;
+      color: #004080;
+      background-color: #e3f2fd;
+      padding: 12px;
+      border-radius: 50%;
+    }
+    .card-title {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container-fluid">
+  <div class="row">
+    
+    <!-- Sidebar -->
+    <nav class="col-md-2 d-none d-md-block sidebar">
+      <div class="text-center mb-4">
+        <img src="Screenshot 2025-05-07 114748.png" alt="I2IT Logo" class="logo mb-2">
+        <h5>I2IT Admin</h5>
+      </div>
+      <a href="#" class="active"><i class="fas fa-tachometer-alt me-2"></i>Dashboard</a>
+      <a href="#"><i class="fas fa-user-graduate me-2"></i>Students</a>
+      <a href="#"><i class="fas fa-chalkboard-teacher me-2"></i>Faculty</a>
+      <a href="#"><i class="fas fa-book me-2"></i>Courses</a>
+      <a href="#"><i class="fas fa-calendar-alt me-2"></i>Exams</a>
+      <a href="#"><i class="fas fa-bell me-2"></i>Notifications</a>
+    </nav>
+
+    <!-- Main content -->
+    <main class="col-md-10 ms-sm-auto px-4 py-4">
+      <h3 class="mb-4">Welcome to I2IT College Dashboard</h3>
+
+      <!-- Statistics Cards -->
+      <div class="row g-4 mb-4">
+        <div class="col-md-3">
+          <div class="card p-3">
+            <div class="d-flex justify-content-between">
+              <div>
+                <div class="card-title">Total Students</div>
+                <h4>1,200</h4>
+              </div>
+              <div class="card-icon"><i class="fas fa-users"></i></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card p-3">
+            <div class="d-flex justify-content-between">
+              <div>
+                <div class="card-title">Courses</div>
+                <h4>42</h4>
+              </div>
+              <div class="card-icon"><i class="fas fa-book-open"></i></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card p-3">
+            <div class="d-flex justify-content-between">
+              <div>
+                <div class="card-title">Faculty</div>
+                <h4>80</h4>
+              </div>
+              <div class="card-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card p-3">
+            <div class="d-flex justify-content-between">
+              <div>
+                <div class="card-title">Upcoming Exams</div>
+                <h4>6</h4>
+              </div>
+              <div class="card-icon"><i class="fas fa-calendar-check"></i></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Overview Cards -->
+      <div class="row g-4">
+        <div class="col-md-8">
+          <div class="card p-3">
+            <h5 class="mb-3">Overview</h5>
+            <p>The International Institute of Information Technology (I2IT) is committed to academic excellence and innovation. This admin dashboard gives you a quick view of the student body, academic activity, and exam schedules.</p>
+            <ul>
+              <li>All departments updated</li>
+              <li>Exams scheduled from 10th May</li>
+              <li>New course modules added for AI and ML</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card p-3">
+            <h5 class="mb-3">Latest Notices</h5>
+            <ul class="list-unstyled">
+              <li><i class="fas fa-bell text-warning me-2"></i> Semester results to be announced soon</li>
+              <li><i class="fas fa-bell text-primary me-2"></i> Hackathon registrations open</li>
+              <li><i class="fas fa-bell text-danger me-2"></i> Library closed on Friday</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

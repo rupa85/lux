@@ -1,0 +1,364 @@
+<!--index.html-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="user.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Registration Form</h1>
+        <form id="registrationForm">
+            <div class="container-items">
+                <label for="name">Enter your name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="container-items">
+                <label for="dob">Date of Birth</label>
+                <input type="date" id="dob" name="dob" required>
+            </div>
+
+            <div class="container-items">
+                <label for="gender">Gender</label>
+                <select id="gender" name="gender" required>
+                    <option value="" disabled selected>Select</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+
+            <div class="container-items">
+                <label for="fathername">Father's Name</label>
+                <input type="text" id="fathername" name="fathername" required>
+            </div>
+
+            <div class="container-items">
+                <label for="mothername">Mother's Name</label>
+                <input type="text" id="mothername" name="mothername" required>
+            </div>
+
+            <div class="container-items">
+                <label for="address">Address</label>
+                <textarea id="address" name="address" cols="30" rows="5" required></textarea>
+            </div>
+
+            <div class="container-items">
+                <button type="submit" class="btn-success">Submit</button>
+            </div>
+        </form>
+
+        <div class="container-items">
+            <a href="userfile.html">View Registered Users</a>
+        </div>
+    </div>
+</body>
+</html>
+
+
+<!-------============================================================================------------------------>
+<!----Userfile.html------->
+
+
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registered Users</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="displayuser.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Registered Users</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>DOB</th>
+                    <th>Gender</th>
+                    <th>Father's Name</th>
+                    <th>Mother's Name</th>
+                    <th>Address</th>
+                </tr>
+            </thead>
+            <tbody id="userTableBody">
+               
+            </tbody>
+        </table>
+        <a href="index.html">Go back to the registration page</a>
+    </div>
+</body>
+</html>
+---->
+
+<!-----------------================================================================================----------------------------------->
+
+<!----user.js---------------->
+
+<!---
+document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('registrationForm');
+
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        // Get form values
+        const name = document.getElementById('name').value.trim();
+        const dob = document.getElementById('dob').value;
+        const gender = document.getElementById('gender').value;
+        const fathername = document.getElementById('fathername').value.trim();
+        const mothername = document.getElementById('mothername').value.trim();
+        const address = document.getElementById('address').value.trim();
+
+        // Validate required fields
+        if (!name || !fathername || !mothername || !address || !dob || !gender) {
+            alert('All fields are required!');
+            return;
+        }
+
+        // Validate date of birth (must be in the past)
+        const dobDate = new Date(dob);
+        const today = new Date();
+        if (dobDate >= today) {
+            alert('Invalid Date of Birth. Please enter a valid past date.');
+            return;
+        }
+
+        // Create user object
+        const user = { name, dob, gender, fathername, mothername, address };
+
+        // Store in localStorage
+        let users = JSON.parse(localStorage.getItem('users')) || [];
+        users.push(user);
+        localStorage.setItem('users', JSON.stringify(users));
+
+        alert('Registration successful!');
+
+        // Redirect to user list page
+        window.location.href = 'userfile.html';
+
+        // Reset the form
+        form.reset();
+    });
+});
+-->
+
+<!-----------------------=====================================================================--------------------------------->
+<!---displayuser.js-->
+<!----
+
+document.addEventListener('DOMContentLoaded', function () {
+    const users = JSON.parse(localStorage.getItem('users')) || [];
+    const userTable = document.getElementById('userTableBody');
+
+    if (userTable) {
+        users.forEach((user) => {
+            const row = document.createElement('tr');
+             row.innerHTML = `
+                 <td>${user.name || ''}</td>
+                  <td>${user.dob || ''}</td>
+                 <td>${user.gender || ''}</td>
+                 <td>${user.fathername || ''}</td>
+                 <td>${user.mothername || ''}</td>
+                 <td>${user.address || ''}</td>
+             `;
+            userTable.appendChild(row);
+         });
+     }
+ })
+-->
+
+
+<!----------------------=====================================================================---------------------------------------->
+<!---style.css-->
+<!-- 
+/* General page styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    flex-direction: column;
+}
+
+/* Container for form and table */
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 800px;
+}
+
+/* Styling for form elements */
+.container-items {
+    margin-bottom: 15px;
+}
+
+.container-items label {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.container-items input,
+.container-items select,
+.container-items textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.container-items textarea {
+    resize: vertical;
+    height: 100px;
+}
+
+/* Button styling */
+.btn-success {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+}
+
+/* Table styling */body{
+    background: #efd0e7;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    align-items: center;
+    margin: 0;
+    flex-direction: columns;
+}
+
+.container{
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 9px;
+    width: 100%;
+    max-width: 800px;
+}
+.container-items label{
+    font-size: 16px;
+    color: #333;
+    margin-top: 5px;
+    display:block;
+}
+
+.container-items input, .container-items select{
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border :1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+
+}
+
+.btn-success{
+    background-color: #b61a7f;
+    color:white;
+    border:none;
+    padding: 12px 20px;
+    width: 100%;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.btn-success:hover{
+    background-color: #efd0e7;
+}
+
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th,td{
+    border: 1px solid #ddd;
+    padding:10px;
+    text-align: left;
+}
+
+th{
+    background-color: #635b5b;
+    color: white;
+}
+
+a{
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration: underline;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #28a745;
+    color: white;
+}
+
+/* Alternate row colors for better readability */
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Link styling */
+a {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+-->
